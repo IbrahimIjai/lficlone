@@ -30,9 +30,9 @@ body {
   }
 }
 .heading {
-  @apply font-bold text-3xl lg:text-5xl mx-auto my-4;
+  @apply font-bold text-white text-3xl lg:text-6xl my-4;
 }
 
 .buttonLink {
-  @apply bg-primary rounded-full px-6 py-2 text-black;
+  @apply bg-primary rounded-full font-bold px-6 py-2 text-black;
 }

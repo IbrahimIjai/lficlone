@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-background text-white scrollbar-thin scrollbar-w-[5px]  scrollbar-thumb-primary scrollbar-track-muted overflow-x-hidden`}
+        className={`bg-background text-gray-400 scrollbar-thin scrollbar-w-[5px]  scrollbar-thumb-primary scrollbar-track-muted overflow-x-hidden`}
       >
         <motion.div
           className="fixed z-10 top-0 inset-x-0 h-[7px] origin-[0%] bg-primary"
