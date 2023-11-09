@@ -75,6 +75,7 @@ module.exports = {
       'auto': 'auto',
       'cover': 'cover',
       'contain': 'contain',
+      '150%': '150%',
       '75%': '75%',
       '65%': '65%',
       '50%': '50%',
