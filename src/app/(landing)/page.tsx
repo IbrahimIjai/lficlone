@@ -8,11 +8,11 @@ export default function Home() {
   return (
     <>
       <div className="h-screen bg-[url(/herologo.png)] flex-col bg-no-repeat w-screen bg-center bg-75% lg:bg-25% items-center flex justify-center">
-        <div className="px-4 lg:w-[50%] lg:px-12 text-center flex flex-col items-center gap-8">
-          <h1 className="font-bold text-3xl lg:text-6xl ">
+        <div className="px-4 lg:w-[45%] lg:px-12 text-center flex flex-col items-center gap-8">
+          <h1 className="font-bold text-white text-3xl lg:text-7xl ">
             Build Your Independence
           </h1>
-          <h3 className="text-gray-500 text-base lg:text-lg">
+          <h3 className="text-gray-500 text-base lg:text-2xl">
             LFi is a decentralized platform designed to provide equal
             opportunities for wealth generation and financial independence
             through crypto.

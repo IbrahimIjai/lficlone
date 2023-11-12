@@ -36,3 +36,17 @@ body {
 .buttonLink {
   @apply bg-primary rounded-full font-bold px-6 py-2 text-black;
 }
+.conicbg{
+  background-image: conic-gradient(red 20deg, blue 100deg);
+}
+@layer utilities {
+  .box::before{
+    @apply  content-[""] absolute conicbg w-[300px] h-[300px] top-[-25%] left-[-25%] animate-boderSpin;
+  }
+  .bento{
+    @apply   content-["tailwind"]  bg-muted w-[94%] h-[94%]  absolute top-[3%] left-[3%] flex justify-center items-center;
+  }
+  .bento2{
+    @apply    bg-background  absolute  flex justify-center items-center;
+  }
+}

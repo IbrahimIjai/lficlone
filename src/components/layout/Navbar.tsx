@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="flex items-center justify-between bg-background px-4 lg:px-12  pb-[23px] pt-[28px] fixed top-0 inset-x-0"
+      className="flex font-semibold text-white/80 items-center justify-between bg-background px-4 lg:px-12  pb-[23px] pt-[28px] fixed top-0 inset-x-0"
     >
       <Logo />
       <div className="flex items-center gap-3 lg:gap-6">
