@@ -2,171 +2,159 @@
 
 import React, { useEffect, useMemo, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
-
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { Button } from "../ui/Button";
 export default function MisionandVision() {
-  const controls1 = useAnimation();
-  const controls2 = useAnimation();
-  const controls3 = useAnimation();
-  const ref1 = useRef<HTMLDivElement>(null);
-  const ref2 = useRef<HTMLDivElement>(null);
-  const ref3 = useRef<HTMLDivElement>(null);
-
-  const scrollValues = useMemo(() => {
-    const parentDivHeight = window.innerHeight;
-
-    const start1 = (parentDivHeight * 40) / 100;
-    const end1 = (parentDivHeight * 65) / 100;
-
-    const start2 = (parentDivHeight * 70) / 100;
-    const end2 = (parentDivHeight * 85) / 100;
-
-    const start3 = (parentDivHeight * 90) / 100;
-    const end3 = parentDivHeight;
-
-    return { start1, end1, start2, end2, start3, end3 };
-  }, []);
+  const controls = useAnimation();
+  const svgRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery("(min-width: 960px)");
 
   useEffect(() => {
-    const handleScroll = () => {
+    const svgElement = svgRef.current;
+    if (!svgElement) return;
+
+    const svgHeight = svgElement.getBoundingClientRect().height;
+    const viewportHeight = window.innerHeight;
+    const triggerPoint = viewportHeight * 0.84;
+    console.log("this is svg height", svgHeight);
+    console.log("this is triggerPoint", triggerPoint);
+
+    const scrollHandler = () => {
       const scrollY = window.scrollY || window.pageYOffset;
+      const svgPosition =
+        svgElement.getBoundingClientRect().top + window.scrollY;
 
-      const progress1 = Math.min(
-        Math.max(
-          (scrollY - scrollValues.start1) /
-            (scrollValues.end1 - scrollValues.start1),
-          0,
-        ),
-        1,
-      );
-      const progress2 = Math.min(
-        Math.max(
-          (scrollY - scrollValues.start2) /
-            (scrollValues.end2 - scrollValues.start2),
-          0,
-        ),
-        1,
-      );
-      const progress3 = Math.min(
-        Math.max(
-          (scrollY - scrollValues.start3) /
-            (scrollValues.end3 - scrollValues.start3),
-          0,
-        ),
-        1,
-      );
-
-      controls1.start({ width: `${Math.max(60 + progress1 * 40 - 5.2, 0)}%` });
-      controls2.start({
-        height: `${progress2 * 100}%`,
-        // transition: { delay: 0.5 },
-      });
-      controls3.start({
-        width: `${progress3 * 30}%`,
-        // transition: { delay: 0.5 },
-      });
+      if (svgPosition < scrollY + triggerPoint) {
+        const progress = (scrollY + triggerPoint - svgPosition) / svgHeight;
+        controls.start({
+          opacity: 1,
+          pathLength: progress,
+          // transition: { duration: 0.5 },
+        });
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", scrollHandler);
 
-    // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", scrollHandler);
     };
-  }, [controls1, controls2, controls3, scrollValues]);
+  }, [controls]);
+
   return (
-    // <div className="min-h-screen w-screen flex items-center justify-center">
-    //   <div>
-    //     <motion.div
-    //       className="relative rounded-bl-[12vh]"
-    //       style={{
-    //         width: "80vw", // Adjust the width as needed
-    //         height: "40vh", // Adjust the height as needed
-    //         overflow: "hidden", // Hide any overflow content
-    //       }}
-    //     >
-    //       {/* div1 */}
-    //       <motion.div
-    //         ref={ref1}
-    //         initial={{ width: "60%" }}
-    //         animate={controls1}
-    //         transition={{ duration: 0.5 }}
-    //         className=" absolute bg-gradient-to-b from-gray-600 to-primary left-0  h-full w-[calc(100%-4rem)]"
-    //       />
+    <div className="w-screen h-screen relative">
+      <div className="w-full h-[80%] relative">
+        {isDesktop ? (
+          <figure ref={svgRef} className="visionProgressBar hidden lg:block">
+            <motion.svg
+              className=" hidden lg:block"
+              width="100%"
+              height="100%"
+              viewBox="0 0 1101 596"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#070A0B"></stop>
+                  <stop offset="20%" stop-color="#5adbe2"></stop>
+                  <stop offset="100%" stop-color="#5adbe2"></stop>
+                </linearGradient>
+              </defs>
+              {/* <motion.path
+    animate={controls}
+    initial={{ opacity: 0, pathLength: 0 }}
+    className=""
+    d="M1 0.5V266.5C1 283.069 14.4315 296.5 31 296.5H1070C1086.57 296.5 1100 309.931 1100 326.5V565C1100 581.569 1086.57 595 1070 595H931.289H762.577"
+  ></motion.path> */}
+              <motion.path
+                animate={controls}
+                initial={{ opacity: 0, pathLength: 0.5 }}
+                stroke="url(#gradient)"
+                className="stroke-[3px]"
+                d="M1 0.5V266.5C1 283.069 14.4315 296.5 31 296.5H1070C1086.57 296.5 1100 309.931 1100 326.5V565C1100 581.569 1086.57 595 1070 595H931.289H762.577"
+                pathLength="1"
+                stroke-dashoffset="0px"
+                stroke-dasharray="1px 1px"
+              ></motion.path>
+            </motion.svg>
+          </figure>
+        ) : (
+          <figure ref={svgRef} className="visionProgressBar">
+            <motion.svg
+              className="block"
+              width="100%"
+              height="100%"
+              viewBox="0 0 400 579"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#070A0B"></stop>
+                  <stop offset="20%" stop-color="#5adbe2"></stop>
+                  <stop offset="100%" stop-color="#5adbe2"></stop>
+                </linearGradient>
+              </defs>
+              {/* <motion.path
+              animate={controls}
+              initial={{ opacity: 0, pathLength: 0 }}
+              className=""
+              d="M1 0.5V266.5C1 283.069 14.4315 296.5 31 296.5H1070C1086.57 296.5 1100 309.931 1100 326.5V565C1100 581.569 1086.57 595 1070 595H931.289H762.577"
+            ></motion.path> */}
+              <motion.path
+                animate={controls}
+                initial={{ opacity: 0, pathLength: 0.5 }}
+                stroke="url(#gradient)"
+                className="stroke-[3px]"
+                d="M1 0.5V231.173C1 247.742 14.4315 261.173 31 261.173H369C385.569 261.173 399 274.605 399 291.173V548C399 564.569 385.569 578 369 578H337.902H276.803"
+                pathLength="1"
+                stroke-dashoffset="0px"
+                stroke-dasharray="1px 1px"
+              ></motion.path>
+            </motion.svg>
+            
+          </figure>
+        )}
+      </div>
 
-    //       <div className="rounded-bl-[12vh] bento2 top-0 right-0  w-[calc(100%-4px)] h-[calc(100%-2px)]">
-    //         <div>
-    //             <div>
-    //                 <h3>Our</h3>
-    //                 <h1>Vision</h1>
-    //             </div>
-    //             <div>
-
-    //             </div>
-    //         </div>
-    //       </div>
-    //     </motion.div>
-
-    //     <motion.div
-    //       className="relative rounded-tr-[4rem] rounded-br-[4rem]"
-    //       style={{
-    //         width: "80vw", // Adjust the width as needed
-    //         height: "40vh", // Adjust the height as needed
-    //         overflow: "hidden", // Hide any overflow content
-    //       }}
-    //     >
-    //       {/* div2 */}
-    //       <motion.div
-    //         ref={ref2}
-    //         initial={{ height: 0 }}
-    //         animate={controls2}
-    //         transition={{ duration: 0.5 }}
-    //         className="absolute bg-primary right-0 w-[4rem] h-full"
-    //       />
-
-    //       {/* div3 */}
-    //       <motion.div
-    //         ref={ref3}
-    //         initial={{ width: 0 }}
-    //         animate={controls3}
-    //         transition={{ duration: 0.5 }}
-    //         className="absolute bg-primary bottom-0 right-[4rem] w-[30%] h-[50%]"
-    //       />
-
-    //       <div className="bento2  top-[2px] bottom-[4px] left-0 w-[calc(100%-4px)] h-[calc(100%-6px)] rounded-tr-[4rem] rounded-br-[4rem]">
-    //         <p>Misson</p>
-    //       </div>
-    //     </motion.div>
-    //   </div>
-    // </div>
-    <div>
-      <svg
-        className="d-block d-sm-none"
-        width="100%"
-        height="100%"
-        viewBox="0 0 400 579"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#070A0B"></stop>
-            <stop offset="20%" stop-color="#464646"></stop>
-            <stop offset="100%" stop-color="#04FCA3"></stop>
-          </linearGradient>
-        </defs>
-        <path
-          className=""
-          d="M1 0.5V231.173C1 247.742 14.4315 261.173 31 261.173H369C385.569 261.173 399 274.605 399 291.173V548C399 564.569 385.569 578 369 578H337.902H276.803"
-        ></path>
-        <path
-          stroke="url(#gradient)"
-          className="visionMissionPath"
-          d="M1 0.5V231.173C1 247.742 14.4315 261.173 31 261.173H369C385.569 261.173 399 274.605 399 291.173V548C399 564.569 385.569 578 369 578H337.902H276.803"
-          pathLength="1"
-          stroke-dashoffset="0px"
-          stroke-dasharray="0.9130041939871651px 1px"
-        ></path>
-      </svg>
+      <div className="absolute top-8 left-0 right-0 py-6 bottom-0 mx-auto w-[90%] md:w-[70%] lg:w-[80%] px-4 md:px-10  h-[65%] flex flex-col gap-4 justify-between">
+        {divItems.map((item) => {
+          return (
+            <div
+              className={`gap-8 flex-1 flex flex-col px-3 lg:flex-row md:px-16  lg:justify-between ${
+                item.title == "Mission"
+                  ? "items-start h-full mt-12 text-left"
+                  : "mt-4 items-end text-right lg:flex-row-reverse"
+              }`}
+              key={item.title}
+            >
+              {" "}
+              <div>
+                <h4 className="text-white text-xl my-2 ">{item.subTitle}</h4>
+                <h1 className="text-white font-semibold text-4xl">
+                  {item.title}
+                </h1>
+              </div>
+              <p className="md:w-[70%] text-xl lg:text-2xl ">{item.text}</p>
+            </div>
+          );
+        })}
+      </div>
+      <Button className="text-center">Ecosystem</Button>
     </div>
   );
 }
+
+const divItems = [
+  {
+    subTitle: "Our",
+    title: "Mission",
+    text: "A decentralized, sustainable, and fair global economy where everyone has the chance to achieve financial independence and participate in wealth creation.",
+  },
+  {
+    subTitle: "Became",
+    title: "Vision",
+    text: "To empower individuals to take control of their wealth by providing accessible financial opportunities through a platform driven by a DAO community.",
+  },
+];
