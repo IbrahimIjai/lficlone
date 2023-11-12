@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SVGProps } from "react";
-import { Separator } from "../../components/ui/Seperator";
-export default function Heros() {
+import { Separator } from "../ui/Seperator";
+export default function Trades() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-[3rem]">
-      <h1 className="heading my-8 text-center">Trades on</h1>
+      <h1 className="heading my-8 lg:my-16 text-center ">Trades on</h1>
 
-      <div className="grid lg:grid-cols-2 gap-8">
-        <div className="flex lg:flex-1 items-center justify-center flex-col w-full border rounded-xl border-gray-500 p-6">
-          <div className="flex items-center gap-8 p-4">
+      <div className="grid lg:grid-cols-2 gap-8 w-full lg:px-8 lg:gap-12">
+        <div className="flex  items-center justify-center lg:items-start flex-col w-full border rounded-xl border-gray-500 p-6">
+          <div className="flex items-center gap-8 py-4 justify-between lg:px-8 px-4">
             <div className="relative w-[85px] h-[89px]">
               <Image
                 src="/img/token-clfi.png"
@@ -43,7 +43,7 @@ export default function Heros() {
             </div>
           </div>
         </div>
-        <div className="flex lg:flex-1 items-center justify-center flex-col w-full border rounded-xl border-gray-500 p-6">
+        <div className="flex  items-center lg:items-start justify-center flex-col w-full border rounded-xl border-gray-500 p-6">
           <div className="flex items-center gap-8 p-4">
             <div className="relative w-[85px] h-[89px]">
               <Image

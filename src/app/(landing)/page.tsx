@@ -1,9 +1,9 @@
 "use client";
-import Heros from "@/components/home/Heros";
+import Trades from "@/components/home/Trades";
 import Image from "next/image";
 import Link from "next/link";
 import { patnersLogo, tokensDetails } from "@/config/data";
-
+import MisionandVision from "@/components/home/MisionandVision";
 export default function Home() {
   return (
     <>
@@ -56,117 +56,118 @@ export default function Home() {
         </div>
       </div>
       <div className="h-screen ">
-      <div className="lg:flex lg:flex-row-reverse items-center">
-        <div className="w-full lg:px-[5rem] lg:w-1/2 flex items-center lg:items-start flex-col px-8 text-center">
-          <p>
-            <span className="text-primary"> Ecosystem </span> Smartphone{" "}
-          </p>
-          <h2 className="heading"> LFi One </h2>
-          <h3 className="lg:text-left">
-            {" "}
-            A revolutionary smartphone that allows users to mint tokens and
-            enter the crypto world seamlessly.{" "}
+        <div className="lg:flex lg:flex-row-reverse items-center">
+          <div className="w-full lg:px-[5rem] lg:w-1/2 flex items-center lg:items-start flex-col px-8 text-center">
+            <p>
+              <span className="text-primary"> Ecosystem </span> Smartphone{" "}
+            </p>
+            <h2 className="heading"> LFi One </h2>
+            <h3 className="lg:text-left">
+              {" "}
+              A revolutionary smartphone that allows users to mint tokens and
+              enter the crypto world seamlessly.{" "}
+            </h3>
+            <div className="hidden lg:inline-block items-center mt-4">
+              <Link className="buttonLink" href="/seen_on">
+                Discover LFi One
+              </Link>
+            </div>
+          </div>
+          <div className="relative lg:w-1/2 w-full h-[55vh] lg:h-[75vh]">
+            <Image
+              src="/img/blue-lfi-one.png"
+              fill
+              className="object-contain"
+              alt="A illustration of a phone"
+            />
+          </div>
+        </div>
+      </div>
+      <div className=" lg:h-screen px-8 py-[4rem] flex flex-col items-center justify-between">
+        <div className="w-full lg:w-[55%] mx-auto flex flex-col items-center my-4 text-center">
+          <h1 className="heading mx-auto"> LFi Minting Machine </h1>
+          <h3 className="w-[80%]">
+            Different types of cutting-edge hardware to mint tokens,
+            authenticate data, and collect rewards in LFi.{" "}
           </h3>
-          <div className="hidden lg:inline-block items-center mt-4">
-            <Link className="buttonLink" href="/seen_on">
-              Discover LFi One
+        </div>
+        <div className="w-full mt-[6rem]">
+          <div className="w-full mx-auto h-[84px] lg:h-[210px] lg:w-[75%] relative">
+            <Image
+              src="/img/minting-machine.png"
+              alt="An illustration of a minting machine"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="w-full flex items-center mt-4">
+            <Link className="buttonLink mx-auto" href="/seen_on">
+              Learn More
             </Link>
           </div>
         </div>
-        <div className="relative lg:w-1/2 w-full h-[55vh] lg:h-[75vh]">
-          <Image
-            src="/img/blue-lfi-one.png"
-            fill
-            className="object-contain"
-            alt="A illustration of a phone"
-          />
+      </div>
+      <div className="h-screen flex justify-center items-center px-[4rem]">
+        <div className="flex gap-[6rem] w-full lg:h-full lg:flex-1 lg:flex-row flex-col items-center">
+          <div className=" flex flex-col items-center gap-4 lg:items-start">
+            <h1 className="heading "> LFi Blockchain </h1>
+            <h3 className="max-w-[450px] text-center lg:text-left">
+              An independent blockchain boasting Smart Contract capabilities,
+              dApps and compatibility with the Ethereum Virtual Machine (EVM).
+            </h3>
+            <Link className="buttonLink" href="/more">
+              Learn More
+            </Link>
+          </div>
+          <div className="relative lg:flex-1 w-full lg:w-1/2 h-[250px] lg:h-full">
+            <Image
+              src="/img/blockchainbanner.png"
+              alt="An illustration of blockchain"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
-    </div>
-    <div className=" lg:h-screen px-8 py-[4rem] flex flex-col items-center justify-between">
-      <div className="w-full lg:w-[55%] mx-auto flex flex-col items-center my-4 text-center">
-        <h1 className="heading mx-auto"> LFi Minting Machine </h1>
-        <h3 className="w-[80%]">
-          Different types of cutting-edge hardware to mint tokens, authenticate
-          data, and collect rewards in LFi.{" "}
+      <div className="flex flex-col items-center py-8 px-4 gap-12 border-[1px] border-primary rounded-3xl mx-6 lg:w-[85%] mx-auto ">
+        <p> LFi Blockchain </p>
+        <div className="p-[1rem] w-full h-full lg:w-[400px] lg:h-[140px]">
+          <DappsSvg />
+        </div>
+        <h3 className="text-center lg:w-[400px]">
+          Decentralized applications running on our own proprietary LFi
+          Blockchain and public networks.
         </h3>
+        <Link className="buttonLink" href="/more">
+          Learn More
+        </Link>
       </div>
-      <div className="w-full mt-[6rem]">
-        <div className="w-full mx-auto h-[84px] lg:h-[210px] lg:w-[75%] relative">
-          <Image
-            src="/img/minting-machine.png"
-            alt="An illustration of a minting machine"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="w-full flex items-center mt-4">
-          <Link className="buttonLink mx-auto" href="/seen_on">
-            Learn More
-          </Link>
-        </div>
-      </div>
-    </div>
-    <div className="h-screen flex justify-center items-center px-[4rem]">
-      <div className="flex gap-[6rem] w-full lg:h-full lg:flex-1 lg:flex-row flex-col items-center">
-        <div className=" flex flex-col items-center gap-4 lg:items-start">
-          <h1 className="heading "> LFi Blockchain </h1>
-          <h3 className="max-w-[450px] text-center lg:text-left">
-            An independent blockchain boasting Smart Contract capabilities,
-            dApps and compatibility with the Ethereum Virtual Machine (EVM).
-          </h3>
-          <Link className="buttonLink" href="/more">
-            Learn More
-          </Link>
-        </div>
-        <div className="relative lg:flex-1 w-full lg:w-1/2 h-[250px] lg:h-full">
-          <Image
-            src="/img/blockchainbanner.png"
-            alt="An illustration of blockchain"
-            fill
-            className="object-contain"
-          />
+      <div className="min-h-screen flex items-center justify-center px-6 lg:px-[3rem]">
+        <div className="mt-16 lg:mt-0">
+          <h2 className="heading mx-auto text-center"> LFi Tokens&nbsp; </h2>
+          <div className="grid lg:grid-cols-3 gap-10 mt-16">
+            {tokensDetails.map((item, i) => {
+              return (
+                <div
+                  key={i}
+                  className="border-[1px] hover:border-primary border-gray-600 rounded-lg py-10 px-6 flex items-center flex-col text-center gap-3"
+                >
+                  <LFIBatch className="text-primary" />
+                  <p className="font-bold text-white text-xl">{item.label}</p>
+                  <p>{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="w-full flex items-start mt-8">
+            <Link className="buttonLink mx-auto text-center " href="/more">
+              Explore All
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="flex flex-col items-center py-8 px-4 gap-12 border-[1px] border-primary rounded-3xl mx-6 lg:w-[85%] mx-auto ">
-      <p> LFi Blockchain </p>
-      <div className="p-[1rem] w-full h-full lg:w-[400px] lg:h-[140px]">
-        <DappsSvg />
-      </div>
-      <h3 className="text-center lg:w-[400px]">
-        Decentralized applications running on our own proprietary LFi Blockchain
-        and public networks.
-      </h3>
-      <Link className="buttonLink" href="/more">
-        Learn More
-      </Link>
-    </div>
-    <div className="min-h-screen flex items-center justify-center px-6 lg:px-[3rem]">
-      <div className="mt-16 lg:mt-0">
-        <h2 className="heading mx-auto text-center"> LFi Tokens&nbsp; </h2>
-        <div className="grid lg:grid-cols-3 gap-10 mt-16">
-          {tokensDetails.map((item, i) => {
-            return (
-              <div
-                key={i}
-                className="border-[1px] hover:border-primary border-gray-600 rounded-lg py-10 px-6 flex items-center flex-col text-center gap-3"
-              >
-                <LFIBatch className="text-primary" />
-                <p className="font-bold text-white text-xl">{item.label}</p>
-                <p>{item.text}</p>
-              </div>
-            );
-          })}
-        </div>
-        <div className="w-full flex items-start mt-8">
-          <Link className="buttonLink mx-auto text-center " href="/more">
-            Explore All
-          </Link>
-        </div>
-      </div>
-    </div>
-      <Heros />
+      <Trades />
+      <MisionandVision />
     </>
   );
 }
