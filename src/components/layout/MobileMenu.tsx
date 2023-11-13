@@ -33,7 +33,7 @@ export default function MobileMenu() {
       </SheetTrigger>
       <SheetContent side="top" className="pl-1 pr-0 h-1/2">
         <ScrollArea className="my-4  pb-10 pl-6 ">
-          <div className="pl-1 pr-7 flex flex-col items-start">
+          <div className="pl-1 pr-7 flex flex-col gap-4 pt-6 items-start font-semibold text-white">
             {navigationsLink.map((linkItem) => {
               if (linkItem.items.length > 0)
                 return (
@@ -48,7 +48,7 @@ export default function MobileMenu() {
                         {linkItem.title}
                       </AccordionTrigger>
                       <AccordionContent>
-                        <div className="flex flex-col space-y-2 ml-3">
+                        <div className="flex flex-col space-y-2 ml-3 pt-4">
                           {linkItem.items?.map((subItem, index) =>
                             subItem.href ? (
                               <MobileLink

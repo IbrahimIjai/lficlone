@@ -62,7 +62,7 @@ export default function Blockhain() {
         </div>
       </div>
 
-      <div className="lg:w-4/5 mx-auto text-2xl lg:text-4xl text-center font-medium text-white">
+      <div className="lg:w-4/5 mb-20 mx-auto text-2xl lg:text-4xl text-center font-medium text-white">
         <p>
           {" "}
           Starting out, our ecosystems native tokens and dApps take their first
@@ -74,7 +74,7 @@ export default function Blockhain() {
 
       <div className="w-screen px-6 lg:p-[4rem] lg:mt-[4rem]">
         <h1 className="heading mx-auto text-center mb-8">LFi dApps</h1>
-        <div className="grid px-4 lg:grid-cols-2 gap-8 lg:gap-[3.5rem] ">
+        <div className="grid px-2 mt-8 lg:grid-cols-2 gap-12 lg:gap-[3.5rem] ">
           {dapps.map((item, i) => {
             return (
               <div
