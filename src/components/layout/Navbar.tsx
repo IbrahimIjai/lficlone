@@ -21,16 +21,16 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="flex z-50 font-semibold bg-background text-white/80 items-center justify-between  px-4 lg:px-12  pb-[23px] pt-[28px] fixed top-0 inset-x-0"
+      className="flex z-50 font-semibold bg-background text-white/80 items-center justify-between px-4 lg:px-12 py-4 fixed top-0 inset-x-0"
     >
       <Logo />
       <div className="flex items-center gap-3 lg:gap-6">
         <DeskTopMenu />
         <Link
           href="google.com"
-          className="bg-primary rounded-full text-gray-900 p-2 px-4 text-xl"
+          className="bg-primary rounded-full text-[#070a0b] p-2 px-4 text-base font-medium"
         >
-          Go to App
+          Go To App
         </Link>
         <MobileMenu />
       </div>

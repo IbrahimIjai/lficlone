@@ -4,16 +4,14 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "../ui/Navigation";
 import Link from "next/link";
 
 export default function DeskTopMenu() {
   return (
-    <div className="hidden lg:inline-flex text-xl">
+    <div className="hidden lg:inline-flex text-base font-normal">
       <div className="flex items-center gap-8">
         {navigationsLink.map((linkItem) => {
           if (linkItem.items.length > 0)
@@ -21,13 +19,17 @@ export default function DeskTopMenu() {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="hover:bg-none hover:font-bold text-xl text-white">
+                    <NavigationMenuTrigger className="bg-transparent hover:bg-transparent text-white">
                       {linkItem.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="bg-accent border-gray-400">
-                      <div className="flex flex-col items-start py-4 gap-3 px-8">
+                      <div className="flex flex-col items-start gap-3 py-2">
                         {linkItem.items.map((item, i) => (
-                          <Link href={item.href} key={i} className="text-white">
+                          <Link
+                            href={item.href}
+                            key={i}
+                            className="hover:bg-primary w-full whitespace-nowrap text-sm px-4 py-1 text-[#919aa7]"
+                          >
                             {item.title}
                           </Link>
                         ))}
@@ -39,7 +41,7 @@ export default function DeskTopMenu() {
             );
           return (
             <Link
-              className="hover:font-bold hover:text-primary text-white"
+              className="hover:text-primary text-white"
               key={linkItem.title}
               href={linkItem.url}
             >
