@@ -7,15 +7,15 @@ import MisionandVision from "@/components/home/MisionandVision";
 export default function Home() {
   return (
     <>
-      <div className="h-screen bg-[url(/herologo.png)] flex-col bg-no-repeat w-screen bg-center bg-75% lg:bg-25% items-center flex justify-center">
-        <div className="px-4 lg:w-[45%] lg:px-12 text-center flex flex-col items-center gap-8">
-          <h1 className="font-bold text-white text-3xl lg:text-7xl ">
+      <div className="h-screen flex-col w-screen items-center flex justify-center relative">
+        <div className="px-4 md:max-w-[540px] md:w-[80%] lg:max-w-[770px] lg:px-12 text-center flex flex-col items-center gap-8 z-10">
+          <h1 className="font-bold text-white text-3xl md:text-4xl lg:text-6xl">
             Build Your Independence
           </h1>
-          <h3 className="text-gray-500 text-base lg:text-2xl">
-            LFi is a decentralized platform designed to provide equal
-            opportunities for wealth generation and financial independence
-            through crypto.
+          <h3 className="text-gray-500 text-base lg:text-lg">
+            LFi is an innovative decentralized platform that aims to democratize
+            access to opportunities in the crypto world, ensuring everyone has
+            the chance to participate and benefit.
           </h3>
           <Link
             href="/"
@@ -24,56 +24,61 @@ export default function Home() {
             Learn More
           </Link>
         </div>
+        <div className="absolute w-full h-full bg-[url(/bw.png)] bg-no-repeat bg-center bg-55% lg:bg-45% opacity-30"></div>
       </div>
-      <div className="h-screen ">
+      <div className="py-16">
         <div className="w-full flex items-center my-4">
-          <h1 className="heading mx-auto">As Seen On</h1>
+          <h1 className="heading mx-auto text-2xl lg:text-5xl">As Seen On</h1>
         </div>
-        <div className="grid w-[95%] lg:w-[90%] mx-auto grid-cols-2 lg:grid-cols-4 gap-8">
-          {patnersLogo.map((item, i) => {
-            return (
-              <div
-                key={i}
-                className="border hover:bg-gray-800 cursor-pointer hover:border-primary transition-all duration-500 rounded-lg"
-              >
-                <div className="relative overflow-hidden w-full h-[60px]">
-                  <Image
-                    src={item}
-                    alt="Patners Logo"
-                    fill
-                    className="object-contain p-4 "
-                  />
-                </div>
+        <div className="grid w-[95%] lg:w-[90%] mx-auto grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {patnersLogo.map((item, i) => (
+            <div
+              key={i}
+              className="border border-[#202020] hover:bg-gray-800 cursor-pointer hover:border-primary transition-all duration-500 rounded-lg"
+            >
+              <div className="relative overflow-hidden w-full h-[60px]">
+                <Image
+                  src={item}
+                  alt="Patners Logo"
+                  fill
+                  className="object-contain p-4 "
+                />
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
         <div className="w-full flex items-center mt-8">
-          <Link className="buttonLink mx-auto" href="/seen_on">
+          <Link
+            className="buttonLink mx-auto !text-[#070a0b] !text-base !font-medium"
+            href="/seen_on"
+          >
             View More
           </Link>
         </div>
       </div>
-      <div className="h-screen ">
+      <div className="py-16">
         <div className="lg:flex lg:flex-row-reverse items-center">
-          <div className="w-full lg:px-[5rem] lg:w-1/2 flex items-center lg:items-start flex-col px-8 text-center">
+          <div className="w-full m-auto lg:px-[5rem] lg:w-1/2 flex items-center lg:items-start flex-col gap-3 px-8 text-center max-w-md md:max-w-2xl">
             <p>
-              <span className="text-primary"> Ecosystem </span> Smartphone{" "}
+              <span className="text-primary"> Crypto </span> Smartphone{" "}
             </p>
             <h2 className="heading"> LFi One </h2>
-            <h3 className="lg:text-left">
+            <h3 className="lg:text-left  text-[#919aa7]">
               {" "}
               A revolutionary smartphone that allows users to mint tokens and
               enter the crypto world seamlessly.{" "}
             </h3>
             <div className="hidden lg:inline-block items-center mt-4">
-              <Link className="buttonLink" href="/seen_on">
+              <Link
+                className="buttonLink !text-[#070a0b] !text-base !font-medium"
+                href="/seen_on"
+              >
                 Discover LFi One
               </Link>
             </div>
           </div>
-          <div className="relative lg:w-1/2 w-full h-[55vh] lg:h-[75vh]">
+          <div className="relative lg:w-1/2 w-full h-[90vh]">
             <Image
               src="/img/blue-lfi-one.png"
               fill
@@ -129,14 +134,18 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center py-8 px-4 gap-12 border-[1px] border-primary rounded-3xl mx-6 lg:w-[85%] mx-auto ">
+      <div className="flex flex-col items-center py-8 px-4 gap-6 border-[1px] border-primary rounded-3xl max-w-[80%] mx-auto ">
         <p> LFi Blockchain </p>
-        <div className="p-[1rem] w-full h-full lg:w-[400px] lg:h-[140px]">
+        <div className="p-[1rem] w-1/2">
           <DappsSvg />
         </div>
-        <h3 className="text-center lg:w-[400px]">
-          Decentralized applications running on our own proprietary LFi
-          Blockchain and public networks.
+        <h3 className="text-center max-w-[80%] text-[#919aa7]">
+          We have developed decentralized applications that live and function in
+          our proprietary blockchain and public networks. Our dApps are designed
+          according to fundamental crypto principles, empowering users and
+          businesses to leverage blockchain-based tools and instruments to build
+          their independence, using devices such as the LFi One crypto phone as
+          the gateway to a whole new digital asset universe.
         </h3>
         <Link className="buttonLink" href="/more">
           Learn More
@@ -145,19 +154,18 @@ export default function Home() {
       <div className="min-h-screen flex items-center justify-center px-6 lg:px-[3rem]">
         <div className="mt-16 lg:mt-0">
           <h2 className="heading mx-auto text-center"> LFi Tokens&nbsp; </h2>
-          <div className="grid lg:grid-cols-3 gap-10 mt-16">
-            {tokensDetails.map((item, i) => {
-              return (
-                <div
-                  key={i}
-                  className="border-[1px] hover:border-primary border-gray-600 rounded-lg py-10 px-6 flex items-center flex-col text-center gap-3"
-                >
-                  <LFIBatch className="text-primary" />
-                  <p className="font-bold text-white text-xl">{item.label}</p>
+          <div className="grid md:grid-cols-3 gap-10 mt-16">
+            {tokensDetails.map((item, i) => (
+              <div className="group" key={i}>
+                <div className="border-[1px] hover:border-primary border-gray-600 rounded-lg py-10 px-6 flex items-center flex-col text-center gap-3 parent">
+                  <LFIBatch />
+                  <p className="font-bold text-white text-xl group-hover:text-primary">
+                    {item.label}
+                  </p>
                   <p>{item.text}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
           <div className="w-full flex items-start mt-8">
             <Link className="buttonLink mx-auto text-center " href="/more">
@@ -172,19 +180,7 @@ export default function Home() {
   );
 }
 
-{
-  /* <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-<Image
-  className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-  src="/next.svg"
-  alt="Next.js Logo"
-  width={180}
-  height={37}
-  priority
-/>
-</div> */
-}
-import { SVGProps } from "react";
+import { SVGProps, useState } from "react";
 const DappsSvg = (props: SVGProps<SVGSVGElement>) => (
   <svg
     // width={486}
@@ -210,32 +206,38 @@ const LFIBatch = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      fill="#F1F4F8"
+      fill={props.fill ? props.fill : "#F1F4F8"}
       fillRule="evenodd"
       d="M104 52c0 28.719-23.281 52-52 52S0 80.719 0 52 23.281 0 52 0s52 23.281 52 52Zm-52 50c27.614 0 50-22.386 50-50S79.614 2 52 2 2 24.386 2 52s22.386 50 50 50Z"
       clipRule="evenodd"
+      className="fill-current group-hover:fill-primary"
     />
     <path
-      fill="#F1F4F8"
+      fill={props.fill ? props.fill : "#F1F4F8"}
       fillRule="evenodd"
       d="M52 88.051c19.91 0 36.051-16.14 36.051-36.051 0-19.91-16.14-36.051-36.051-36.051-19.91 0-36.051 16.14-36.051 36.051 0 19.91 16.14 36.051 36.051 36.051ZM52 89c20.434 0 37-16.566 37-37S72.434 15 52 15 15 31.566 15 52s16.566 37 37 37Z"
       clipRule="evenodd"
+      className="fill-current group-hover:fill-primary"
     />
     <path
-      fill="#F1F4F8"
+      fill={props.fill ? props.fill : "#F1F4F8"}
       d="m66.268 47.51-.028-.014a.54.54 0 0 0-.758.318 2.719 2.719 0 0 1-1.332 1.534l-10.824 5.666a2.76 2.76 0 0 1-2.57 0l-10.824-5.666a2.72 2.72 0 0 1-1.331-1.534.54.54 0 0 0-.759-.318l-.027.014c-1.083.566-1.083 2.111 0 2.678l13.52 7.08c.44.229.967.229 1.407 0l13.523-7.08c1.083-.567 1.083-2.112 0-2.678h.003Z"
+      className="fill-current group-hover:fill-primary"
     />
     <path
-      fill="#F1F4F8"
+      fill={props.fill ? props.fill : "#F1F4F8"}
       d="m66.268 42.432-.028-.014a.54.54 0 0 0-.758.318 2.718 2.718 0 0 1-1.332 1.534l-10.824 5.667a2.76 2.76 0 0 1-2.57 0L39.93 44.27a2.718 2.718 0 0 1-1.332-1.534.54.54 0 0 0-.758-.318l-.028.014c-1.083.567-1.083 2.112 0 2.678l13.52 7.08c.44.229.967.229 1.407 0l13.524-7.08c1.082-.566 1.082-2.111 0-2.678h.005Z"
+      className="fill-current group-hover:fill-primary"
     />
     <path
-      fill="#F1F4F8"
+      fill={props.fill ? props.fill : "#F1F4F8"}
       d="m37.814 39.927.95.495 1.514.793 2.926 1.528 1.86.976 6.597 3.45a.823.823 0 0 0 .762 0l2.076-1.086c1.082-.567 1.082-2.112 0-2.679l-6.279-3.287-.373-.196c-1.041-.547-1.08-1.998-.117-2.61.036-.024.078-.046.117-.068l7.828-4.097a.815.815 0 0 0 0-1.445l-2.931-1.529c-.44-.23-.966-.23-1.407 0l-13.523 7.076c-1.083.564-1.083 2.112 0 2.679Z"
+      className="fill-current group-hover:fill-primary"
     />
     <path
-      fill="#F1F4F8"
+      fill={props.fill ? props.fill : "#F1F4F8"}
       d="M53.788 37.246c-.559.293-.83.849-.808 1.396a1.503 1.503 0 0 0 .808 1.283l5.534 2.897s.006 0 .009.002c.434.23.955.23 1.392 0 0 0 .006 0 .008-.002l.147-.078 2.926-1.534 2.464-1.285s.006-.003.008-.006c1.075-.57 1.072-2.109-.008-2.673l-5.537-2.9c-.019-.008-.036-.019-.058-.027-.008-.006-.016-.008-.025-.014a1.33 1.33 0 0 0-1.24 0s-.02.008-.025.014c-.02.008-.039.02-.058.028l-5.534 2.9h-.003ZM44.143 73.43v-8.233h1.344v7.068h4.104v1.164h-5.448ZM51.264 73.43v-8.233h5.88v1.152h-4.536v2.436h4.104v1.14h-4.104v3.504h-1.344ZM58.932 66.025v-1.272h1.248v1.272h-1.248Zm0 7.404v-6.312h1.248v6.312h-1.248ZM48.914 95.483l-.025.703-1.998-.07.025-.704 1.998.071ZM44.638 92.57l-1.083 5.311-.736-.15.952-4.668-2.64-.538.13-.643 3.377.688ZM40.36 91.54l-1.67 5.157-3.653-1.182.2-.617 2.939.952.535-1.654-2.676-.867.197-.608 2.676.866.737-2.278.714.23ZM33.968 94.454l-.307.711-.638-.275.306-.711.639.275Zm1.955-4.535-1.645 3.817-.639-.276 1.645-3.817.639.276ZM29.963 88.863l-.37.598-1.7-1.053.37-.598 1.7 1.053ZM25.584 83.542l-3.612 4.042-.542-.484.418-4.417c.001-.041.007-.1.018-.175l.032-.225c.007-.071.017-.133.029-.186l-.024-.021a995.794 995.794 0 0 0-.326.365l-2.38 2.663-.548-.49 3.612-4.042.512.458-.436 4.485a7.256 7.256 0 0 0-.04.293c-.018.125-.031.226-.038.305l.03.026.168-.188.163-.183 2.422-2.71.542.484ZM22.277 80.446l-5.494 1.944-.649-.745 2.677-5.18.535.614-.666 1.28 1.733 1.991 1.356-.488.508.584Zm-2.508.14-1.405-1.615-.851 1.61c-.026.043-.06.104-.103.183l-.14.26-.166.29c-.06.1-.113.192-.16.275l.032.036.357-.144a36.038 36.038 0 0 1 .72-.28l1.716-.615ZM17.876 74.858l-3.945 2.672 1.042 1.537-.543.368-2.513-3.71.543-.367 1.05 1.55 3.945-2.672.421.622ZM16.062 71.845l-4.765 2.585-.358-.66 4.765-2.585.358.66ZM14.057 67.626l-4.211 3.967-.316-.75 3-2.772c.055-.058.12-.12.196-.185a16.712 16.712 0 0 0 .403-.367l-.019-.044-.241.016-.285.017a7.7 7.7 0 0 1-.284.017l-4.073.223-.307-.728 5.784-.232.353.838ZM12.912 64.48 7.7 65.966l-1.143-4.012.623-.178.938 3.29 1.61-.459-.842-2.956.623-.178.843 2.957 1.732-.494-.95-3.336.623-.178 1.156 4.058ZM11.146 55.226l-4.747.406.158 1.85-.654.056-.38-4.464.653-.056.159 1.866 4.747-.406.064.748ZM11.205 49.373c-.023.564-.145 1.044-.366 1.44-.222.393-.545.69-.97.895-.424.2-.95.286-1.575.261-.632-.025-1.149-.154-1.55-.386a2.154 2.154 0 0 1-.895-.97c-.189-.413-.272-.901-.25-1.465.023-.563.145-1.04.366-1.432a2.1 2.1 0 0 1 .97-.894c.419-.205.944-.295 1.576-.27.626.026 1.143.157 1.55.395a2.1 2.1 0 0 1 .894.97c.19.407.273.893.25 1.456Zm-.647-.026a2.515 2.515 0 0 0-.087-.802 1.46 1.46 0 0 0-.347-.623 1.73 1.73 0 0 0-.631-.412c-.26-.1-.569-.158-.927-.172l-.165-.007a2.858 2.858 0 0 0-.937.097 1.65 1.65 0 0 0-.663.361c-.18.156-.315.354-.404.593a2.516 2.516 0 0 0-.15.792c-.012.3.016.57.086.81.07.24.188.448.354.624.162.175.373.313.632.413.255.094.564.149.927.163l.166.007c.358.014.67-.015.936-.09.262-.078.483-.198.663-.36a1.53 1.53 0 0 0 .396-.593c.088-.234.139-.5.15-.8ZM11.443 46.27l-5.346-.893.123-.74 2.83.472-2.376-3.193.154-.92 1.796 2.392 3.562-1.569-.147.881-2.971 1.29.846 1.263 1.653.276-.124.74ZM12.391 41.596l-5.2-1.53 1.178-4.003.622.183-.966 3.282 1.607.474.868-2.95.621.184-.867 2.949 1.728.508.98-3.328.62.183-1.19 4.048ZM14.02 36.71 9.054 34.54l.29-.666 4.327-.983c.04-.011.097-.024.171-.037l.225-.04c.07-.015.132-.026.186-.031l.012-.029-.224-.098-.225-.098-3.273-1.429.294-.673 4.968 2.168-.275.63-4.397.987c-.068.01-.165.028-.29.054-.125.02-.225.04-.302.058l-.016.036.232.101.224.098 3.332 1.455-.291.666ZM16.142 28.808l-.586-.389 1.106-1.665.586.389-1.106 1.665ZM21.625 24.582l-3.96-3.701.513-.549 3.48 3.254 1.84-1.968.48.448-2.353 2.516ZM24.742 21.476l-3.522-4.121 2.92-2.495.42.493-2.348 2.007 1.13 1.321 2.138-1.827.415.486-2.138 1.828 1.555 1.82-.57.488ZM25.603 14.504l-.446-.633.569-.4.446.633-.569.4Zm2.842 4.04-2.392-3.4.569-.4 2.392 3.4-.569.4ZM32.463 14.017l-.316-.628 1.787-.897.315.628-1.786.897ZM39.29 13.07l-1.556-5.193.697-.208 3.545 2.666c.034.023.08.059.14.107a224.84 224.84 0 0 0 .318.268l.03-.01-.07-.234-.07-.235L41.3 6.81l.704-.211 1.554 5.193-.658.197-3.594-2.718a7.285 7.285 0 0 0-.229-.188 4.772 4.772 0 0 0-.239-.192l-.038.011a7424.437 7424.437 0 0 0 .143.477l1.043 3.482-.697.209ZM43.658 11.872l1.218-5.7.974-.163 3.014 4.992-.803.135-.744-1.238-2.603.435-.293 1.41-.763.129Zm1.192-2.21 2.112-.354-.926-1.567a6.216 6.216 0 0 0-.103-.183 44.405 44.405 0 0 1-.147-.256l-.161-.294a17.63 17.63 0 0 0-.151-.279l-.047.008-.065.38a34.124 34.124 0 0 1-.137.76L44.85 9.66ZM50.722 11.046l-.213-4.76-1.855.083-.03-.655 4.477-.2.029.654-1.87.084.212 4.76-.75.034ZM54.239 11.076l.29-5.413.75.04-.29 5.413-.75-.04ZM58.884 11.575l-1.178-5.664.805.123.792 4.007c.02.077.039.166.056.264a17.686 17.686 0 0 0 .102.535l.046.008c.03-.06.068-.131.113-.215l.135-.251c.045-.09.09-.173.134-.251l1.941-3.588.781.12-2.829 5.05-.898-.138ZM62.164 12.246l1.461-5.22 4.018 1.125-.175.624-3.295-.923-.451 1.614 2.96.828-.175.624-2.96-.829-.486 1.735 3.34.936-.174.624-4.063-1.138ZM70.973 15.583l2.139-4.258-1.66-.833.295-.586 4.004 2.01-.295.587-1.673-.84-2.139 4.257-.67-.337ZM75.93 18.696c-.468-.314-.813-.67-1.036-1.066a2.154 2.154 0 0 1-.255-1.294c.053-.465.254-.959.603-1.48.352-.524.732-.897 1.14-1.118a2.154 2.154 0 0 1 1.294-.255c.451.055.911.24 1.38.554.467.314.81.667 1.028 1.061a2.1 2.1 0 0 1 .255 1.294c-.045.464-.243.959-.596 1.484-.349.52-.731.892-1.147 1.114a2.1 2.1 0 0 1-1.293.256c-.447-.053-.905-.236-1.373-.55Zm.361-.538c.245.164.488.28.729.346.245.07.483.08.712.03.237-.05.464-.158.683-.322.22-.169.43-.402.63-.7l.093-.137c.202-.302.338-.585.408-.85a1.65 1.65 0 0 0 .039-.753 1.424 1.424 0 0 0-.294-.654 2.514 2.514 0 0 0-.597-.543 2.544 2.544 0 0 0-.735-.35 1.491 1.491 0 0 0-.717-.025 1.65 1.65 0 0 0-.682.323 3.022 3.022 0 0 0-.625.704l-.092.137c-.2.298-.338.58-.414.845-.07.265-.083.516-.04.754.046.234.146.45.299.647.153.198.354.38.603.548ZM78.45 20.523l3.559-4.09.566.494-1.883 2.163 3.964-.353.703.612-2.977.28-.528 3.856-.674-.586.456-3.207-1.52.06-1.1 1.264-.566-.493ZM81.937 23.776l4.025-3.63 2.794 3.098-.481.434-2.291-2.54-1.244 1.121 2.058 2.283-.481.434-2.059-2.283-1.337 1.207 2.323 2.576-.481.434-2.826-3.134ZM85.248 27.722l4.448-3.099.415.597-1.426 4.2c-.01.04-.03.095-.058.166l-.083.212a1.577 1.577 0 0 1-.071.175l.018.026.2-.14.202-.14 2.93-2.042.42.603-4.447 3.099-.393-.564 1.46-4.263a7.36 7.36 0 0 0 .106-.276c.047-.117.083-.212.108-.288l-.022-.032-.208.145-.201.14-2.982 2.078-.416-.597ZM90.872 33.664l.638-.296.84 1.814-.638.296-.84-1.814ZM91.604 40.548l5.226-1.437.2.724-4.595 1.263.715 2.598-.633.174-.913-3.322ZM92.62 44.83l5.355-.845.598 3.793-.64.101-.482-3.052-1.717.271.439 2.779-.633.1-.438-2.78-2.365.374-.117-.741ZM98.11 49.211l.773-.048.044.694-.773.048-.044-.694Zm-4.929.309 4.148-.26.044.694-4.148.26-.044-.694ZM94.936 55.312l.7.06-.17 1.992-.7-.06.17-1.992ZM92.171 61.625l5.239 1.392-.187.703-4.127 1.625a1.788 1.788 0 0 1-.164.063 182.792 182.792 0 0 0-.395.132l-.008.03.236.064.237.063 3.452.917-.189.71-5.239-1.392.177-.665 4.197-1.64c.065-.02.158-.053.28-.097.119-.039.215-.073.288-.103l.01-.038-.244-.065-.237-.063-3.513-.934.187-.702ZM90.906 65.974l4.22 4.021-.372.915-5.83-.044.305-.754 1.444.014.991-2.446-1.049-.988.291-.718Zm1.26 2.173-.805 1.985 1.82.03c.05.003.12.006.21.008l.295.01.335.015c.116.008.222.014.317.018l.018-.044-.29-.254a34.785 34.785 0 0 1-.575-.514l-1.326-1.254ZM87.913 72.427l4.168 2.31.9-1.625.574.318-2.172 3.919-.573-.318.907-1.638-4.168-2.31.364-.656ZM86.047 75.408l4.46 3.08-.426.618-4.46-3.08.426-.618ZM83.191 79.105l5.444 1.96-.526.622-3.83-1.422a3.289 3.289 0 0 1-.254-.09 16.113 16.113 0 0 0-.51-.194l-.03.036c.035.057.076.127.124.209l.144.246c.052.085.1.167.143.246l2.042 3.53-.511.604-2.823-5.053.587-.694ZM80.904 81.549l3.683 3.977-3.061 2.835-.44-.476 2.51-2.325-1.138-1.228-2.255 2.088-.44-.475 2.254-2.089-1.224-1.322-2.545 2.357-.44-.475 3.096-2.867ZM73.45 87.31l2.51 4.05 1.578-.978.345.558-3.809 2.36-.345-.558 1.592-.986-2.51-4.05.639-.396ZM68.204 89.905c.512-.235.996-.343 1.45-.325.45.02.861.173 1.236.46.37.288.685.717.945 1.287.264.575.383 1.094.357 1.558-.028.47-.181.882-.46 1.236-.283.355-.68.65-1.193.885s-.994.342-1.443.322a2.1 2.1 0 0 1-1.236-.46c-.372-.281-.69-.71-.953-1.284-.261-.57-.378-1.09-.35-1.561a2.1 2.1 0 0 1 .46-1.236c.279-.354.674-.648 1.187-.882Zm.27.589c-.269.123-.494.27-.677.44-.188.173-.32.37-.399.59a1.73 1.73 0 0 0-.082.751 2.9 2.9 0 0 0 .266.904l.069.15c.151.331.321.595.51.793.191.202.399.344.622.428.22.09.458.12.711.091.249-.027.507-.101.775-.224.273-.125.501-.273.684-.443.182-.17.314-.37.395-.599a1.65 1.65 0 0 0 .082-.75c-.03-.27-.122-.57-.273-.9l-.069-.151a3.07 3.07 0 0 0-.503-.795 1.73 1.73 0 0 0-.622-.428 1.532 1.532 0 0 0-.708-.085c-.248.027-.509.103-.782.228ZM65.328 91.097l1.622 5.172-.716.224-.858-2.736-1.773 3.562-.89.28 1.32-2.684-3.01-2.468.852-.267 2.495 2.066.743-1.326-.501-1.599.716-.224ZM60.731 92.365l.987 5.33-4.102.76-.118-.637 3.364-.623-.305-1.647-3.022.56-.118-.638 3.022-.56-.328-1.771-3.41.632-.119-.637 4.15-.769ZM55.636 93.122l.313 5.412-.726.042-2.833-3.414a1.755 1.755 0 0 1-.11-.136 123.642 123.642 0 0 1-.25-.334l-.031.002.014.245.014.244.207 3.566-.734.043-.313-5.412.686-.04 2.869 3.475c.04.056.1.134.18.235.074.101.137.182.188.242l.039-.002-.015-.252-.014-.245-.21-3.629.726-.042Z"
+      className="fill-current group-hover:fill-primary"
     />
   </svg>
 );

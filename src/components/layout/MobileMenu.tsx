@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// import { AiOutlineMenuUnfold } from "react-icons/ai";
-import { Link2Icon, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/Sheets";
 import { Button } from "../ui/Button";
 import { ScrollArea } from "../ui/ScrollArea";
@@ -12,7 +11,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../ui/Accordion";
-// import { siteConfig } from "@/config/site";
 import { navigationsLink } from "@/config/site";
 import { cn } from "@/lib/utils";
 

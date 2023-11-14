@@ -3,6 +3,7 @@ import { SVGProps } from "react";
 import MobileMenu from "./MobileMenu";
 import DeskTopMenu from "./DeskTopMenu";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -21,9 +22,9 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="flex z-50 font-semibold bg-background text-white/80 items-center justify-between px-4 lg:px-12 py-4 fixed top-0 inset-x-0"
+      className="flex z-50 font-semibold bg-background text-white/80 items-center justify-between px-4 lg:px-12 py-4 fixed top-0 inset-x-0 max-w-[540px] md:max-w-[720px] m-auto lg:max-w-full"
     >
-      <Logo />
+      <Logo2 />
       <div className="flex items-center gap-3 lg:gap-6">
         <DeskTopMenu />
         <Link
@@ -67,4 +68,8 @@ export const Logo = (props: SVGProps<SVGSVGElement>) => (
       d="M54.084 30.76V3.035h4.206V27.08h10.274v3.68h-14.48ZM71.413 30.76V3.035h15.125v3.6h-10.92v8.608h9.547v3.638h-9.547v11.88h-4.205ZM88.74 6.637V3h3.802v3.637h-3.801Zm0 24.124V9.5h3.802v21.26h-3.801Z"
     />
   </svg>
+);
+
+const Logo2 = () => (
+  <Image src="/astra logo.png" width={30} height={30} alt="Astra Vault Logo" />
 );
