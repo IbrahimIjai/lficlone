@@ -1,9 +1,9 @@
-const { fontFamily } = require("tailwindcss/defaultTheme")
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["app/**/*.{ts,tsx}","src/**/*", "components/**/*.{ts,tsx}"],
+  content: ["app/**/*.{ts,tsx}", "src/**/*", "components/**/*.{ts,tsx}"],
   theme: {
     container: {
       center: true,
@@ -19,6 +19,7 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        local_gray: "hsl(var(--gray))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -65,29 +66,29 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "boderSpin" : {
-          "100%" : {
-            transform: "rotate(-360deg)"
-          }
-        }
+        boderSpin: {
+          "100%": {
+            transform: "rotate(-360deg)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "boderSpin" : "boderSpin 3s linear infinite"
+        boderSpin: "boderSpin 3s linear infinite",
       },
     },
     backgroundSize: {
-      'auto': 'auto',
-      'cover': 'cover',
-      'contain': 'contain',
-      '150%': '150%',
-      '75%': '75%',
-      '65%': '65%',
-      '50%': '50%',
-      '25%': '25%',
-      '16': '4rem',
-    }
+      auto: "auto",
+      cover: "cover",
+      contain: "contain",
+      "150%": "150%",
+      "75%": "75%",
+      "65%": "65%",
+      "50%": "50%",
+      "25%": "25%",
+      "16": "4rem",
+    },
   },
-  plugins: [require("tailwindcss-animate"), require('tailwind-scrollbar')],
-}
+  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
+};
