@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import React from "react";
-
+import MisionandVision from "@/components/home/MisionandVision";
 export default function Ecosystem() {
   return (
     <div className="">
@@ -28,42 +28,48 @@ export default function Ecosystem() {
         </p>
       </div>
 
-      <div>
-        <h1 className="heading"> Manifesto </h1>
-        <div>
-          <div>
-            <div>
-              <h1 className="heading">Financial system</h1>
-              <p>
+      <div className="flex flex-col items-center mx-6 gap-12 my-26">
+        <h1 className="heading my-16"> Manifesto </h1>
+
+        <div className="flex flex-col gap-14 lg:mx-7">
+          <div className="flex flex-col lg:flex-row gap-8 lg:justify-between items-center">
+            <div className="lg:flex-1">
+              <h1 className=" text-white text-4xl">Financial system</h1>
+              <p className="my-5 lg:w-3/5 ">
                 {" "}
                 The time has come to bring a more inclusive financial system to
                 the world, where the control and ownership of assets lie with
                 the people.
               </p>
             </div>
-            <p>
-              {" "}
-              Everyone should have equal opportunities for wealth generation and
-              financial independence.{" "}
-            </p>
+            <div className="lg:flex-1">
+              <p className="text-white text-4xl lg:text-5xl my-12">
+                Everyone should have equal opportunities for wealth generation
+                and financial independence.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <p>
-              We believe in a consensus-driven financial system shaped by the
-              DAO.
-            </p>
-            <div>
-              <h1 className="heading">Transparency</h1>
-              <p>
+          <div className="flex flex-col gap-8 lg:justify-between items-center lg:flex-row-reverse">
+            <div className="lg:flex-1">
+              <h1 className=" text-white text-4xl">Transparency</h1>
+              <p className="my-5 lg:w-3/5 ">
                 {" "}
                 Where transactions are publicly verifiable, must prevail and the
                 security and safety of user data are the top priority.
               </p>
             </div>
+            <div className="lg:flex-1">
+              <p className=" text-white text-4xl  my-12 lg:text-5xl">
+                We believe in a consensus-driven financial system shaped by the
+                DAO.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      <MisionandVision />
     </div>
   );
 }
