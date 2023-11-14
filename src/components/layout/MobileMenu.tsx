@@ -21,76 +21,76 @@ export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-   <div className="lg:hidden">
-     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger asChild>
-        <Button
-          variant="ghost"
-          className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
-        >
-          <Menu className="h-8 w-8" />
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="top" className="pl-1 pr-0 h-1/2">
-        <ScrollArea className="my-4  pb-10 pl-6 ">
-          <div className="pl-1 pr-7 flex flex-col items-start">
-            {navigationsLink.map((linkItem) => {
-              if (linkItem.items.length > 0)
+    <div className="lg:hidden">
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <Button
+            variant="ghost"
+            className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 lg:hidden"
+          >
+            <Menu className="h-8 w-8" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="top" className="pl-1 pr-0 h-1/2">
+          <ScrollArea className="my-4  pb-10 pl-6 ">
+            <div className="pl-1 pr-7 flex flex-col items-start">
+              {navigationsLink.map((linkItem) => {
+                if (linkItem.items.length > 0)
+                  return (
+                    <Accordion
+                      type="single"
+                      key={linkItem.title}
+                      collapsible
+                      className="w-full"
+                    >
+                      <AccordionItem value={linkItem.title}>
+                        <AccordionTrigger className="text-sm capitalize">
+                          {linkItem.title}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="flex flex-col space-y-2 ml-3">
+                            {linkItem.items?.map((subItem, index) =>
+                              subItem.href ? (
+                                <MobileLink
+                                  key={index}
+                                  href={String(subItem.href)}
+                                  pathname={pathname}
+                                  setIsOpen={setIsOpen}
+                                  disabled={false}
+                                >
+                                  {subItem.title}
+                                </MobileLink>
+                              ) : (
+                                <div
+                                  key={index}
+                                  className="text-foreground/70 transition-colors"
+                                >
+                                  {subItem.title}
+                                </div>
+                              )
+                            )}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                  );
                 return (
-                  <Accordion
-                    type="single"
-                    key={linkItem.title}
-                    collapsible
-                    className="w-full"
-                  >
-                    <AccordionItem value={linkItem.title}>
-                      <AccordionTrigger className="text-sm capitalize">
-                        {linkItem.title}
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="flex flex-col space-y-2 ml-3">
-                          {linkItem.items?.map((subItem, index) =>
-                            subItem.href ? (
-                              <MobileLink
-                                key={index}
-                                href={String(subItem.href)}
-                                pathname={pathname}
-                                setIsOpen={setIsOpen}
-                                disabled={false}
-                              >
-                                {subItem.title}
-                              </MobileLink>
-                            ) : (
-                              <div
-                                key={index}
-                                className="text-foreground/70 transition-colors"
-                              >
-                                {subItem.title}
-                              </div>
-                            ),
-                          )}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
+                  <div key={linkItem.title}>
+                    <MobileLink
+                      setIsOpen={setIsOpen}
+                      disabled={false}
+                      href={linkItem.url}
+                    >
+                      {linkItem.title}
+                    </MobileLink>
+                  </div>
                 );
-              return (
-                <div key={linkItem.title}>
-                  <MobileLink
-                    setIsOpen={setIsOpen}
-                    disabled={false}
-                    href={linkItem.url}
-                  >
-                    {linkItem.title}
-                  </MobileLink>
-                </div>
-              );
-            })}
-          </div>
-        </ScrollArea>
-      </SheetContent>
-    </Sheet>
-   </div>
+              })}
+            </div>
+          </ScrollArea>
+        </SheetContent>
+      </Sheet>
+    </div>
   );
 }
 
@@ -115,7 +115,7 @@ function MobileLink({
         className={cn(
           "text-foreground/70 transition-colors hover:text-foreground",
           pathname === href && "text-foreground",
-          disabled && "pointer-events-none opacity-60",
+          disabled && "pointer-events-none opacity-60"
         )}
         onClick={() => setIsOpen(false)}
       >

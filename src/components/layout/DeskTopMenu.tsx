@@ -21,18 +21,16 @@ export default function DeskTopMenu() {
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="hover:bg-none hover:font-bold text-xl">
+                    <NavigationMenuTrigger className="hover:bg-none hover:font-bold text-xl text-white">
                       {linkItem.title}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent className="bg-accent border-gray-400">
                       <div className="flex flex-col items-start py-4 gap-3 px-8">
-                        {linkItem.items.map((item, i) => {
-                          return (
-                            <Link href={item.href} key={i}>
-                              {item.title}
-                            </Link>
-                          );
-                        })}
+                        {linkItem.items.map((item, i) => (
+                          <Link href={item.href} key={i} className="text-white">
+                            {item.title}
+                          </Link>
+                        ))}
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
@@ -40,7 +38,11 @@ export default function DeskTopMenu() {
               </NavigationMenu>
             );
           return (
-            <Link className="hover:font-bold hover:text-primary" key={linkItem.title} href={linkItem.url}>
+            <Link
+              className="hover:font-bold hover:text-primary text-white"
+              key={linkItem.title}
+              href={linkItem.url}
+            >
               {linkItem.title}
             </Link>
           );

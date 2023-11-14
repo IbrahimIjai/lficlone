@@ -30,7 +30,6 @@ export default function Ecosystem() {
 
       <div>
         <h1 className="heading"> Manifesto </h1>
-
         <div>
           <div>
             <div>
