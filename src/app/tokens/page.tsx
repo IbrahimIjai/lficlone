@@ -1,15 +1,5 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tab";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/Card";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 
@@ -22,17 +12,15 @@ export default function TokensPage() {
           className="flex flex-col items-center lg:flex-1 lg:items-start lg:justify-between lg:py-[4rem]"
         >
           <TabsList className="flex gap-4 bg-background">
-            {tokensList.map((item) => {
-              return (
-                <TabsTrigger
-                  className=" px-5 lg:px-8 border text-xl  border-gray-500 rounded-full data-[state=active]:bg-primary/30"
-                  key={item.tokenName}
-                  value={item.tokenName}
-                >
-                  {item.tokenName}
-                </TabsTrigger>
-              );
-            })}
+            {tokensList.map((item) => (
+              <TabsTrigger
+                className=" px-5 lg:px-8 border text-xl  border-gray-500 rounded-full data-[state=active]:bg-primary/30"
+                key={item.tokenName}
+                value={item.tokenName}
+              >
+                {item.tokenName}
+              </TabsTrigger>
+            ))}
           </TabsList>
           <div className="relative w-[366px] h-[301px] lg:hidden">
             <Image
@@ -62,7 +50,6 @@ export default function TokensPage() {
             alt="LFI token Logo"
           />
         </div>
-
       </div>
     </div>
   );
@@ -89,15 +76,17 @@ const tokensList: tokens[] = [
       " vLFi holders will receive rewards, obtain discounts, get wider allocations in launchpad, and more.",
   },
 ];
-const TokenDetails = ({ tokenName, tokenDetails }: tokens) => {
-  return (
-    <div className="flex items-center lg:items-start flex-col lg:items-start gap-7">
-      <h1 className="heading">{tokenName} Token</h1>
-      <p className="ml-8 text-center lg:text-left text-xl lg:w-3/5">{tokenDetails}</p>
-      <div className="ml-8 flex gap-3">
-        <Button className="text-xl">Buy {tokenName}</Button>
-        <Button className="text-xl" variant="outline">More about {tokenName}</Button>
-      </div>
+const TokenDetails = ({ tokenName, tokenDetails }: tokens) => (
+  <div className="flex items-center lg:items-start flex-col gap-7">
+    <h1 className="heading">{tokenName} Token</h1>
+    <p className="ml-8 text-center lg:text-left text-xl lg:w-3/5">
+      {tokenDetails}
+    </p>
+    <div className="ml-8 flex gap-3">
+      <Button className="text-xl">Buy {tokenName}</Button>
+      <Button className="text-xl" variant="outline">
+        More about {tokenName}
+      </Button>
     </div>
-  );
-};
+  </div>
+);

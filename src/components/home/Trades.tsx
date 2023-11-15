@@ -1,35 +1,38 @@
 import Image from "next/image";
-import Link from "next/link";
-import { SVGProps } from "react";
 import { Separator } from "../ui/Seperator";
 export default function Trades() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-[3rem]">
-      <h1 className="heading my-8 lg:my-16 text-center ">Trades on</h1>
+    <div className="flex flex-col items-center justify-center px-6 lg:px-[3rem] w-full relative">
+      <h1 className="heading my-12 lg:my-16 text-center ">Trade on</h1>
 
-      <div className="grid lg:grid-cols-2 gap-8 w-full lg:px-8 lg:gap-12">
-        <div className="flex  items-center justify-center lg:items-start flex-col w-full border rounded-xl border-gray-500 p-6">
-          <div className="flex items-center gap-8 py-4 justify-between lg:px-8 px-4">
-            <div className="relative w-[85px] h-[89px]">
-              <Image
-                src="/img/token-clfi.png"
-                fill
-                alt="Lfi token logo"
-                className="object-cover"
-              />
+      <div className="grid md:grid-cols-2 gap-8 w-full md:px-8 md:gap-12 relative">
+        {[0, 1].map((_) => (
+          <div
+            className="flex items-center justify-center md:items-start flex-col w-full border rounded-xl border-gray-500 p-4"
+            key={_}
+          >
+            <div className="flex items-center gap-4 justify-between mb-4">
+              <div className="hidden min-[400px]:block relative w-[85px] h-[89px]">
+                <Image
+                  src="/img/token-clfi.png"
+                  fill
+                  alt="Lfi token logo"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-start gap-3">
+                <h1 className="font-medium text-white text-xl">
+                  {_ === 0 ? "LFi" : "cLFi"}
+                </h1>
+                <p className="font-bold text-primary text-2xl">$0.92569148</p>
+                <p className="text-base"> 24H Vol: $1,941,829.7</p>
+              </div>
             </div>
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="font-medium text-white ">LFi</h1>
-              <p className="font-bold text-primary text-2xl">$0.92569148</p>
-              <p className="text-xl"> 24H Vol: $1,941,829.7</p>
-            </div>
-          </div>
-          <Separator />
-          <div className="w-full flex flex-col items-start gap-4 mt-4 ">
-            <p>Trade On</p>
-            <div className="grid grid-cols-4 w-full">
-              {tradeOnLog.map((logo, i) => {
-                return (
+            <Separator />
+            <div className="w-full flex flex-col items-start gap-4 mt-4 ">
+              <p>Trade On</p>
+              <div className="grid grid-cols-2 min-[400px]:grid-cols-4 w-full">
+                {tradeOnLog.map((logo, i) => (
                   <div key={i} className="relative w-full h-[30px]">
                     <Image
                       src={logo}
@@ -38,46 +41,11 @@ export default function Trades() {
                       className="object-cover"
                     />
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex  items-center lg:items-start justify-center flex-col w-full border rounded-xl border-gray-500 p-6">
-          <div className="flex items-center gap-8 p-4">
-            <div className="relative w-[85px] h-[89px]">
-              <Image
-                src="/img/token-clfi.png"
-                fill
-                alt="Lfi token logo"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="font-medium text-white ">LFi</h1>
-              <p className="font-bold text-primary text-2xl">$0.92569148</p>
-              <p className="text-xl"> 24H Vol: $1,941,829.7</p>
-            </div>
-          </div>
-          <Separator />
-          <div className="w-full flex flex-col items-start gap-4 mt-4 ">
-            <p>Trade On</p>
-            <div className="grid grid-cols-4 w-full">
-              {tradeOnLog.map((logo, i) => {
-                return (
-                  <div key={i} className="relative w-full h-[30px]">
-                    <Image
-                      src={logo}
-                      alt={logo}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

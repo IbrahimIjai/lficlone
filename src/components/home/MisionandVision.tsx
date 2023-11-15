@@ -16,8 +16,6 @@ export default function MisionandVision() {
     const svgHeight = svgElement.getBoundingClientRect().height;
     const viewportHeight = window.innerHeight;
     const triggerPoint = viewportHeight * 0.84;
-    console.log("this is svg height", svgHeight);
-    console.log("this is triggerPoint", triggerPoint);
 
     const scrollHandler = () => {
       const scrollY = window.scrollY || window.pageYOffset;
@@ -29,7 +27,6 @@ export default function MisionandVision() {
         controls.start({
           opacity: 1,
           pathLength: progress,
-          // transition: { duration: 0.5 },
         });
       }
     };
@@ -42,7 +39,7 @@ export default function MisionandVision() {
   }, [controls]);
 
   return (
-    <div className="w-screen h-screen relative">
+    <div className="w-screen h-[70vh] min-[470px]:h-[80vh] relative my-6">
       <div className="w-full h-[80%] relative">
         {isDesktop ? (
           <figure ref={svgRef} className="visionProgressBar hidden lg:block">
@@ -61,12 +58,6 @@ export default function MisionandVision() {
                   <stop offset="100%" stop-color="#5adbe2"></stop>
                 </linearGradient>
               </defs>
-              {/* <motion.path
-    animate={controls}
-    initial={{ opacity: 0, pathLength: 0 }}
-    className=""
-    d="M1 0.5V266.5C1 283.069 14.4315 296.5 31 296.5H1070C1086.57 296.5 1100 309.931 1100 326.5V565C1100 581.569 1086.57 595 1070 595H931.289H762.577"
-  ></motion.path> */}
               <motion.path
                 animate={controls}
                 initial={{ opacity: 0, pathLength: 0.5 }}
@@ -96,12 +87,6 @@ export default function MisionandVision() {
                   <stop offset="100%" stop-color="#5adbe2"></stop>
                 </linearGradient>
               </defs>
-              {/* <motion.path
-              animate={controls}
-              initial={{ opacity: 0, pathLength: 0 }}
-              className=""
-              d="M1 0.5V266.5C1 283.069 14.4315 296.5 31 296.5H1070C1086.57 296.5 1100 309.931 1100 326.5V565C1100 581.569 1086.57 595 1070 595H931.289H762.577"
-            ></motion.path> */}
               <motion.path
                 animate={controls}
                 initial={{ opacity: 0, pathLength: 0.5 }}
@@ -113,35 +98,34 @@ export default function MisionandVision() {
                 stroke-dasharray="1px 1px"
               ></motion.path>
             </motion.svg>
-            
           </figure>
         )}
       </div>
 
-      <div className="absolute top-8 left-0 right-0 py-6 bottom-0 mx-auto w-[90%] md:w-[70%] lg:w-[80%] px-4 md:px-10  h-[65%] flex flex-col gap-4 justify-between">
-        {divItems.map((item) => {
-          return (
-            <div
-              className={`gap-8 flex-1 flex flex-col px-3 lg:flex-row md:px-16  lg:justify-between ${
-                item.title == "Mission"
-                  ? "items-start h-full mt-12 text-left"
-                  : "mt-4 items-end text-right lg:flex-row-reverse"
-              }`}
-              key={item.title}
-            >
-              {" "}
-              <div>
-                <h4 className="text-white text-xl my-2 ">{item.subTitle}</h4>
-                <h1 className="text-white font-semibold text-4xl">
-                  {item.title}
-                </h1>
-              </div>
-              <p className="md:w-[70%] text-xl lg:text-2xl ">{item.text}</p>
+      <div
+        className="absolute top-8 left-0 right-0 py-4 lg:py-12 bottom-0 mx-auto w-[90%] md:w-[70%] lg:w-[80%] px-4 md:px-10 flex flex-col gap-4 justify-between"
+        style={{ height: "min(70vh, 80%)" }}
+      >
+        {divItems.map((item) => (
+          <div
+            className={`gap-2 flex-1 flex flex-col px-3 lg:flex-row md:px-16  lg:justify-between ${
+              item.title == "Mission"
+                ? "items-start h-full mt-4 text-left"
+                : "mt-4 items-end text-right lg:flex-row-reverse"
+            }`}
+            key={item.title}
+          >
+            <div>
+              <h4 className="text-white text-sm my-2">{item.subTitle}</h4>
+              <h1 className="text-white font-semibold text-[28px]">
+                {item.title}
+              </h1>
             </div>
-          );
-        })}
+            <p className="md:w-[70%] text-sm lg:text-base">{item.text}</p>
+          </div>
+        ))}
       </div>
-      <Button className="text-center">Ecosystem</Button>
+      {/* <Button className="text-center m-auto">Ecosystem</Button> */}
     </div>
   );
 }
