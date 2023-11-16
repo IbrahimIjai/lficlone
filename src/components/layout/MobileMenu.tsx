@@ -17,7 +17,6 @@ import { cn } from "@/lib/utils";
 export default function MobileMenu() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="lg:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -29,8 +28,12 @@ export default function MobileMenu() {
             <Menu className="h-8 w-8" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="top" className="pl-1 pr-0 h-1/2">
-          <ScrollArea className="my-4  pb-10 pl-6 ">
+        <SheetContent
+          side="top"
+          className="pl-1 pr-0 h-1/2"
+          style={{ border: "none" }}
+        >
+          <ScrollArea className="my-4 pb-10 pl-6">
             <div className="pl-1 pr-7 flex flex-col gap-4 pt-6 items-start font-semibold text-white">
               {navigationsLink.map((linkItem) => {
                 if (linkItem.items.length > 0)
@@ -42,11 +45,11 @@ export default function MobileMenu() {
                       className="w-full"
                     >
                       <AccordionItem value={linkItem.title}>
-                        <AccordionTrigger className="text-sm capitalize">
+                        <AccordionTrigger className="text-sm">
                           {linkItem.title}
                         </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="flex flex-col space-y-2 ml-3 pt-4">
+                        <AccordionContent className="overflow-visible">
+                          <div className="flex flex-col space-y-2 p-4 rounded mt-4 bg-[#141414]">
                             {linkItem.items?.map((subItem, index) =>
                               subItem.href ? (
                                 <MobileLink
@@ -55,6 +58,7 @@ export default function MobileMenu() {
                                   pathname={pathname}
                                   setIsOpen={setIsOpen}
                                   disabled={false}
+                                  className="text-[#919aa7] text-sm hover:text-foreground transition-colors"
                                 >
                                   {subItem.title}
                                 </MobileLink>
@@ -97,6 +101,7 @@ interface MobileLinkProps {
   href: string;
   disabled?: boolean;
   pathname?: string;
+  className?: string;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 function MobileLink({
@@ -105,15 +110,17 @@ function MobileLink({
   disabled,
   pathname,
   setIsOpen,
+  className = "",
 }: MobileLinkProps) {
   return (
     <>
       <Link
         href={href}
         className={cn(
-          "text-foreground/70 transition-colors hover:text-foreground",
+          "text-[#f1f4f8] transition-colors hover:text-primary",
           pathname === href && "text-foreground",
-          disabled && "pointer-events-none opacity-60"
+          disabled && "pointer-events-none opacity-60",
+          className
         )}
         onClick={() => setIsOpen(false)}
       >

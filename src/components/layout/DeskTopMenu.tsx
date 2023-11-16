@@ -16,7 +16,7 @@ export default function DeskTopMenu() {
         {navigationsLink.map((linkItem) => {
           if (linkItem.items.length > 0)
             return (
-              <NavigationMenu>
+              <NavigationMenu key={linkItem.title}>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="bg-transparent hover:bg-transparent text-white">

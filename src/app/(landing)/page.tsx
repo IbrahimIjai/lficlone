@@ -180,7 +180,7 @@ export default function Home() {
   );
 }
 
-import { SVGProps, useState } from "react";
+import { SVGProps } from "react";
 const DappsSvg = (props: SVGProps<SVGSVGElement>) => (
   <svg
     // width={486}

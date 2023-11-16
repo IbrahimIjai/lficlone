@@ -11,24 +11,22 @@ export default function Footer() {
         <div className="flex items-center">
           <Logo />
         </div>
-        {footerLinks.map((item, i) => {
-          return (
-            <div className="flex flex-col items-center lg:items-start" key={i}>
-              <h1 className="font-medium text-white text-xl mb-4">
-                {item.title}
-              </h1>
-              <ul className="flex flex-col  gap-3 items-center lg:items-start">
-                {item.items.map((link, j) => {
-                  return (
-                    <li key={j}>
-                      <Link href={link.href}>{link.item}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        })}
+        {footerLinks.map((item, i) => (
+          <div className="flex flex-col items-center lg:items-start" key={i}>
+            <h1 className="font-medium text-white text-xl mb-4">
+              {item.title}
+            </h1>
+            <ul className="flex flex-col  gap-3 items-center lg:items-start">
+              {item.items.map((link, j) => (
+                <li key={j}>
+                  <Link href={link.href} className="hover:text-primary text-sm">
+                    {link.item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
         <div className="text-center my-4 lg:my-0">
           <div className="mb-6">
             <h1 className="font-semibold text-xl text-white">Contact Us</h1>
@@ -61,14 +59,16 @@ export default function Footer() {
 
       <div className="flex flex-col items-center gap-6 text-center">
         <div className="flex flex-col lg:w-full lg:justify-between gap-3 lg:flex-row items-center">
-          <p>© 2023 LFi | All Rights Reserved</p>
+          <p className="text-sm">© 2023 LFi | All Rights Reserved</p>
           <div className="flex gap-6 items-center">
-            <Link href="/terms">Terms</Link>
-            <Link href="/terms">Privacy & Cookies</Link>
-            <Link href="/terms">Disclaimer</Link>
+            {T_and_Cs.map(({ link, text }, i) => (
+              <Link key={i} className="text-xs hover:text-primary" href={link}>
+                {text}
+              </Link>
+            ))}
           </div>
         </div>
-        <p>
+        <p className="text-xs">
           Actual product may slightly vary in design, color and size. Please
           read the description of the product for complete understanding of its
           specifications.
@@ -77,3 +77,8 @@ export default function Footer() {
     </div>
   );
 }
+const T_and_Cs = [
+  { link: "/terms", text: "Terms" },
+  { link: "/terms", text: "Privacy and Cookies" },
+  { link: "/terms", text: "Disclaimer" },
+];
