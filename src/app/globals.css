@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -81,4 +83,10 @@ body {
     linear-gradient(0deg, #72f4fa 1px, transparent 0) 100% 100%;
   background-repeat: no-repeat;
   background-size: 15px 15px;
+}
+.styleText {
+  font-weight: 500;
+  color: #070a0b;
+  -webkit-text-stroke: 1px #04d8fc4a;
+  -webkit-text-fill-color: #070a0b;
 }
