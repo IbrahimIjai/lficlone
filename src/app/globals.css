@@ -54,3 +54,31 @@ body {
     @apply absolute left-0 right-0 bottom-0 mx-auto w-[90%] lg:w-full h-full;
   }
 }
+.frame:hover {
+  .angle {
+    background-size: 100% 100%;
+  }
+}
+.line,
+.angle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-size 0.8s;
+}
+.line {
+  background: linear-gradient(180deg, #72f4fa 1px, transparent 0) 0 0,
+    linear-gradient(0deg, #72f4fa 1px, transparent 0) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 0 0;
+}
+.angle {
+  background: linear-gradient(90deg, #72f4fa 1px, transparent 0) 0 0,
+    linear-gradient(180deg, #72f4fa 1px, transparent 0) 0 0,
+    linear-gradient(270deg, #72f4fa 1px, transparent 0) 100% 100%,
+    linear-gradient(0deg, #72f4fa 1px, transparent 0) 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+}
