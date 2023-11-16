@@ -6,8 +6,8 @@ import { XLogo, TelegramLogo } from "@/assets/icons";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <div className="flex flex-col items-center lg:justify-between gap-12 px-12 py-8">
-      <div className="flex items-center w-full justify-between lg:items-start lg:flex-row  flex-col gap-6">
+    <div className="flex flex-col items-center lg:justify-between gap-12">
+      <div className="flex items-center w-full justify-between lg:items-start md:flex-row pb-24 pt-60 px-2 flex-col gap-6 sm:max-w-lg md:max-w-3xl m-auto">
         <div className="flex items-center">
           <Logo />
         </div>
@@ -16,7 +16,7 @@ export default function Footer() {
             <h1 className="font-medium text-white text-xl mb-4">
               {item.title}
             </h1>
-            <ul className="flex flex-col  gap-3 items-center lg:items-start">
+            <ul className="flex flex-col gap-3 items-center lg:items-start">
               {item.items.map((link, j) => (
                 <li key={j}>
                   <Link href={link.href} className="hover:text-primary text-sm">
@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="text-center my-4 lg:my-0">
           <div className="mb-6">
             <h1 className="font-semibold text-xl text-white">Contact Us</h1>
-            <Link href="/support">Help and Support</Link>
+            <Link href="/support">Help & Support</Link>
           </div>
           <div className="mt-12">
             <h1 className="font-semibold my-4 text-xl text-white">
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-6 text-center">
+      <div className="flex flex-col items-center gap-6 text-center pt-1 pb-4 w-full sm:max-w-lg md:max-w-3xl m-auto">
         <div className="flex flex-col lg:w-full lg:justify-between gap-3 lg:flex-row items-center">
           <p className="text-sm">© 2023 LFi | All Rights Reserved</p>
           <div className="flex gap-6 items-center">

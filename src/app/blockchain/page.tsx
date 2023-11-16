@@ -77,7 +77,6 @@ export default function Blockhain() {
         by launching our very own blockchain, a fork of the Ethereum 2.0, named
         the LFi Blockchain.
       </div>
-      {/* add in border animation */}
       <div className="w-screen px-6 lg:p-[4rem] lg:mt-[4rem]">
         <h1 className="heading mx-auto text-center mb-8">LFi dApps</h1>
         <div className="flex flex-wrap px-2 mt-8 gap-12 lg:gap-[3.5rem] justify-center">
