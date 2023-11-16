@@ -81,12 +81,14 @@ export default function Blockhain() {
       <div className="w-screen px-6 lg:p-[4rem] lg:mt-[4rem]">
         <h1 className="heading mx-auto text-center mb-8">LFi dApps</h1>
         <div className="flex flex-wrap px-2 mt-8 gap-12 lg:gap-[3.5rem] justify-center">
-          {dapps.map((item, i) => {
-            return (
-              <div
-                key={i}
-                className="border border-primary p-8 group w-full max-w-lg lg:w-1/2"
-              >
+          {dapps.map((item, i) => (
+            <div
+              key={i}
+              className="p-8 group w-full max-w-lg lg:w-1/2 relative frame"
+            >
+              <div className="line"></div>
+              <div className="angle"></div>
+              <article>
                 <div className="relative h-[70px] w-[70px] mb-5">
                   <Image
                     src={item.imageUrl}
@@ -102,9 +104,9 @@ export default function Blockhain() {
                 <Button className="mt-5 rounded-[25px] bg-[#141616] text-[#79828b] px-[25px] group-hover:bg-primary group-hover:text-black">
                   Learn More
                 </Button>
-              </div>
-            );
-          })}
+              </article>
+            </div>
+          ))}
         </div>
       </div>
     </div>
